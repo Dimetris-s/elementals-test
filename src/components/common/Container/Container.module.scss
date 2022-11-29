@@ -1,0 +1,24 @@
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+
+.root {
+  width: 100%;
+  max-width: var(--container-width);
+  padding: 0 15px;
+  margin: 0 auto;
+  @include media($xxl) {
+    --container-width: 991px;
+  }
+  @include media($xl) {
+    --container-width: 768px;
+  }
+  @include media($lg) {
+    --container-width: 540px;
+  }
+  @include media($md) {
+    --container-width: 480px;
+  }
+  @include media($sm) {
+    --container-width: 100%;
+  }
+}

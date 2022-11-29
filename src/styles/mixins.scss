@@ -1,0 +1,12 @@
+@mixin media($breakpoint, $mobile-first: false) {
+  @if $mobile-first {
+    @media(min-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+  @else {
+    @media(max-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+}
