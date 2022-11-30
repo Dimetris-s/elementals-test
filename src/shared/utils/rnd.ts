@@ -10,7 +10,6 @@ export const getRandomName = ():string => {
   return `${getRandomArrayElement(adjective)} ${getRandomArrayElement(object)}`
 }
 
-
 export const randomEnum = <T>(anEnum: T): T[keyof T] => {
   const enumValues = Object.values(anEnum)
   return getRandomArrayElement(enumValues);

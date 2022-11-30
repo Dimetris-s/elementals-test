@@ -1,6 +1,6 @@
 import { User } from 'models/User';
 import { useEffect, useMemo, useState } from 'react';
-import { getUsers } from 'data/generateUsers';
+import { getUsers } from 'api/getUsers';
 
 type UseUsersResult = {
   users: User[];
