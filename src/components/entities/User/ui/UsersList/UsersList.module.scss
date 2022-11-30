@@ -1,9 +1,11 @@
 .root {
+  --position-width: min-content;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.observer {
-  height: 20px;
-  background: red;
+
+.loader {
+  align-self: center;
+  padding-bottom: 8rem;
 }

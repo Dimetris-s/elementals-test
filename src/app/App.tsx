@@ -10,11 +10,3 @@ export const App = () => {
     </Container>
   );
 };
-
-
-// TODO: First render disable observer (get only 50 users)
-// TODO: Enum color get
-// TODO: Avatar vertical aligning
-// TODO: Responsive
-// TODO: Cut very long names
-

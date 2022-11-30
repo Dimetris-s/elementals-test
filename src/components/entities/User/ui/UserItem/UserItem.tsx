@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, forwardRef, RefObject, useState } from 'react';
 import cn from 'classnames';
 import HelmetSVG from 'assets/icons/helmet.svg';
 import { User } from 'models/User';
@@ -8,18 +8,19 @@ import { formatMilliseconds } from 'shared/utils/formatMilliseconds';
 interface UserItemProps {
   user: User;
   position: number;
+  positionRef?: RefObject<HTMLDivElement>;
   className?: string;
 }
 
-export const UserItem: FC<UserItemProps> = ({  user, position, className }) => {
+export const UserItem = forwardRef<HTMLDivElement, UserItemProps>(({  user, position, positionRef, className }, ref) => {
   const { name, speed, time, color } = user;
   const [isActive, setActive] = useState(false);
   const toggleActive = () => {
     setActive(prev => !prev)
   }
   return (
-    <div onClick={toggleActive} className={cn(styles.root, {[styles.isActive]: isActive}, className)}>
-      <div className={styles.position}>
+    <div ref={ref && ref} onClick={toggleActive} className={cn(styles.root, {[styles.isActive]: isActive}, className)}>
+      <div ref={positionRef} className={cn(styles.position, {[styles.isLast]: positionRef})}>
         {position}
       </div>
       {/*// @ts-ignore*/}
@@ -39,4 +40,4 @@ export const UserItem: FC<UserItemProps> = ({  user, position, className }) => {
       </div>
     </div>
   );
-};
+});

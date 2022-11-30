@@ -1,4 +1,6 @@
 @import 'styles/colors';
+@import 'styles/breakpoints';
+@import 'styles/mixins';
 
 .root {
   display: flex;
@@ -18,21 +20,30 @@
   }
 
   .position {
+    width: var(--position-width);
+    display: block;
     font-weight: 700;
     font-size: 1.4rem;
     margin-right: 0.4rem;
     transition: .3s ease;
+    &.isLast {
+      width: min-content;
+    }
   }
 
   .avatar {
     --avatar-size: 90px;
-    margin-right: 0.75rem;
-    aspect-ratio: 1;
+    margin-right: 0.50rem;
     width: var(--avatar-size);
+    height: var(--avatar-size);
+    min-width: var(--avatar-size);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    @include media($sm) {
+      --avatar-size: 80px;
+    }
     svg path[class*=helmet_svg__helmet] {
       fill: var(--helmet-color);
     }
@@ -41,6 +52,11 @@
     color: #303030;
     font-weight: 700;
     font-size: 1.1rem;
+    display: block;
+    max-width: 55vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .speedTime {
@@ -53,7 +69,7 @@
   }
 
   .divider {
-    margin-right: 0.375rem;
+    margin-right: 0.325rem;
     margin-left: 0.375rem;
     height: 12px;
     width: 2px;

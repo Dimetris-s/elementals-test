@@ -4,16 +4,17 @@ type UseObserverProps = {
   ref: RefObject<HTMLElement>;
   isLoading: boolean;
   callback: () => void;
+  canLoad?: boolean;
 }
 
-export const useObserver = ({ ref, isLoading, callback}: UseObserverProps) => {
+export const useObserver = ({ ref, isLoading, canLoad, callback}: UseObserverProps) => {
   const observer = useRef<IntersectionObserver | null>(null);
   useEffect(() => {
-    if(isLoading) return;
+    if(isLoading || !canLoad) return;
     if(observer.current) observer.current.disconnect();
 
     const cb: IntersectionObserverCallback = (entries: IntersectionObserverEntry[]) => {
-      if(entries[0].isIntersecting) {
+      if(entries[0].isIntersecting && canLoad) {
         callback()
       }
     }
