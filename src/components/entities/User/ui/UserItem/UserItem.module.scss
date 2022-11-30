@@ -1,0 +1,71 @@
+@import 'styles/colors';
+
+.root {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &.isActive {
+    .position {
+      color: $violet;
+    }
+    .avatar {
+      border: 3px solid $violet;
+    }
+    .penalty {
+      color: $orange;
+    }
+  }
+
+  .position {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-right: 0.4rem;
+    transition: .3s ease;
+  }
+
+  .avatar {
+    --avatar-size: 90px;
+    margin-right: 0.75rem;
+    aspect-ratio: 1;
+    width: var(--avatar-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    svg path[class*=helmet_svg__helmet] {
+      fill: var(--helmet-color);
+    }
+  }
+  .name {
+    color: #303030;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .speedTime {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .time {
+    color: $violet;
+  }
+
+  .divider {
+    margin-right: 0.375rem;
+    margin-left: 0.375rem;
+    height: 12px;
+    width: 2px;
+    background-color: $blue;
+  }
+
+  .speed {
+    color: $blue;
+  }
+
+  .penalty {
+    color: $gray;
+    transition: .3s ease;
+  }
+}
